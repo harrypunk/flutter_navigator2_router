@@ -46,10 +46,7 @@ class BooksAppState extends State<MyApp> {
             const MaterialPage(
                 child: UnknowScreen(), key: ValueKey("unknowpage"))
           else if (_selectedBook != null)
-            MaterialPage(
-              key: ValueKey(_selectedBook),
-              child: BookDetailScreen(book: _selectedBook!),
-            )
+            BookDetailPage(book: _selectedBook!),
         ],
         onPopPage: (route, result) => route.didPop(result),
       ),
