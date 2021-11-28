@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:learn_fl_router/bookdetail.dart';
 import 'package:learn_fl_router/booklistscreen.dart';
@@ -48,7 +50,18 @@ class BooksAppState extends State<MyApp> {
           else if (_selectedBook != null)
             BookDetailPage(book: _selectedBook!),
         ],
-        onPopPage: (route, result) => route.didPop(result),
+        onPopPage: (route, result) {
+          if (!route.didPop(result)) {
+            return false;
+          }
+
+          log("route did pop true", name: "bookapp");
+          setState(() {
+            _selectedBook = null;
+          });
+
+          return true;
+        },
       ),
     );
   }
