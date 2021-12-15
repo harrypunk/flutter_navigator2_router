@@ -6,3 +6,5 @@
 ```dart
 Router.of(context).routerDelegate.setNewRoutePath("pageA");
 ```
+
+https://cloud.tencent.com/developer/article/1916966
